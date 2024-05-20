@@ -1,28 +1,27 @@
 import Link from 'next/link';
 
-
 const Header: React.FC = () => {
   return (
-    <header className="bg-white text-gray-800 p-4 rounded shadow-md">
-      <div className="flex items-start">
-        <div className="flex items-start">
-          <img src="/logosalesforce.png" alt="Logo Salesforce" className="h-12 w-auto mr-2" />
+    <header className="header">
+      <div className="header-container">
+        <div className="logo-container">
+          <img src="/logosalesforce.png" alt="Logo Salesforce" className="logo" />
         </div>
         <nav>
-          <ul className="flex space-x-4 p-3" style={{ fontSize: '1.1rem' }}>
-            <li className="mr-4">
-              <Link href="/" legacyBehavior className="hover:text-blue-500">
-                Inicio
+          <ul className="nav-list">
+            <li className="nav-item">
+              <Link href="/" legacyBehavior>
+                <a className="nav-link">Inicio</a>
               </Link>
             </li>
-            <li className="mr-4">
-              <Link href="/Login" legacyBehavior className="hover:text-blue-500">
-                Login
+            <li className="nav-item">
+              <Link href="/Login" legacyBehavior>
+                <a className="nav-link">Login</a>
               </Link>
             </li>
-            <li className="mr-4">
-              <Link href="/Cadastro" legacyBehavior className="hover:text-blue-500">
-                Cadastro
+            <li className="nav-item">
+              <Link href="/Cadastro" legacyBehavior>
+                <a className="nav-link">Cadastro</a>
               </Link>
             </li>
           </ul>

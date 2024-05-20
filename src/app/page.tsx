@@ -4,12 +4,14 @@ import Footer from "@/Componentes/footer";
 import Link from "next/link";
 import LoginPage from './Login/page';
 import Inicio from '../Componentes/Inicio';
+import Daltonismo from '@/Componentes/Daltonismo';
 
 
 export default function HomePage() {
     return (
-      <section className="container mx-auto p-4">
+      <section>
         <Inicio/>
+        <Daltonismo/>
       </section>
     )
   }

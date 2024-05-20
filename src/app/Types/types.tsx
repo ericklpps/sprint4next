@@ -1,5 +1,5 @@
 // src/types/User.ts
-export interface User {
+export interface users {
   id: string;
   name: string;
   lastName: string;

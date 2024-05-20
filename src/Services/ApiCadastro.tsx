@@ -1,6 +1,6 @@
 // src/services/apiCadastro.ts
 import axios from 'axios';
-import { User } from '@/app/Types/types';
+import { users } from '@/app/Types/types';
 
 const api = axios.create({
   baseURL: 'http://localhost:4001/',
@@ -14,7 +14,7 @@ export const registerUser = async (
   birthday: Date,
   isColorBlind: boolean,
   typeColorBlind?: string
-): Promise<User | null> => {
+): Promise<users | null> => {
   const userData = {
     name,
     lastName,
@@ -25,7 +25,7 @@ export const registerUser = async (
     typeColorBlind,
   };
 
-  const response = await api.post<User>('/users', userData);
+  const response = await api.post<users>('/users', userData);
   const newUser = response.data;
 
   return newUser || null;

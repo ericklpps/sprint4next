@@ -1,40 +1,28 @@
-import './globals.css';
-
+// src/app/layout.tsx
 import Header from '@/Componentes/header';
-import Footer from '@/Componentes/footer'
-
-// Importa o tipo ReactNode do React para uso tipado de filho
+import Footer from '@/Componentes/footer';
 import { ReactNode } from 'react';
+import Daltonismo from '@/Componentes/Daltonismo';
 
-interface RootLayoutProps{
-    // Define a estrutura dos filhos do layout como `ReactNode`
-     children:ReactNode
+interface RootLayoutProps {
+  children: ReactNode;
 }
 
-export const metadata={
-    //DEFININDO TITULO DA PAGINA
-    title: 'Sprint4',
-    // DEFINIR A DESCRIÇÃO DA PAGINA
-    description:'Projeto Salesforce',
-}
+export const metadata = {
+  title: 'Sprint4',
+  description: 'Projeto Salesforce',
+};
 
-export default function RootLayout({children}:RootLayoutProps){
-    return(
-        <html lang="pt-BR">
-            <body className='bg-white'>
-            {// Inclui o componente Header no topo do layout
-            }
-            <Header/>
-            <main>
-              
-                {children}
-
-            </main>
-
-            <Footer/>
-
-            </body>
-
-        </html>
-    )
+export default function RootLayout({ children }: RootLayoutProps) {
+  return (
+    <html lang="pt-BR">
+      <body>
+        <Header />
+        <main>
+          {children}
+        </main>
+        <Footer />
+      </body>
+    </html>
+  );
 }
