@@ -1,33 +1,32 @@
+// src/components/Cadastro.tsx
 "use client"
 import React, { useState } from 'react';
-import { registerUser } from "@/Services/ApiCadastro"
+import { registerUser } from '@/Services/ApiCadastro'; // Supondo que você tenha esta função
 
 interface User {
-  nome: string;
-  sobrenome: string;
+  name: string;
+  lastName: string;
   email: string;
-  senha: string;
-  telefone: string;
-  endereco: string;
-  daltonismo: boolean;
-  tipoDaltonismo?: string;
+  password: string;
+  birthday: Date;
+  isColorBlind: boolean;
+  typeColorBlind?: string;
 }
 
 const Cadastro: React.FC = () => {
   const [values, setValues] = useState<User>({
-    nome: '',
-    sobrenome: '',
+    name: '',
+    lastName: '',
     email: '',
-    senha: '',
-    telefone: '',
-    endereco: '',
-    daltonismo: false,
+    password: '',
+    birthday: new Date(),
+    isColorBlind: false,
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLInputElement>) => {
     setValues({
      ...values,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.type === "checkbox"? e.target.checked : e.target.value,
     });
   };
 
@@ -35,7 +34,15 @@ const Cadastro: React.FC = () => {
     e.preventDefault();
 
     try {
-      const user = await registerUser(values.nome, values.sobrenome, values.email, values.senha, values.telefone, values.endereco, values.daltonismo, values.tipoDaltonismo);
+      const user = await registerUser(
+        values.name,
+        values.lastName,
+        values.email,
+        values.password,
+        values.birthday,
+        values.isColorBlind,
+        values.typeColorBlind
+      );
       if (user) {
         alert('Cadastro realizado com sucesso!');
         // Redirecionar para outra página após o cadastro
@@ -48,51 +55,43 @@ const Cadastro: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        Nome:
-        <input type="text" name="nome" value={values.nome} onChange={handleChange} required />
-      </label>
-      <label>
-        Sobrenome:
-        <input type="text" name="sobrenome" value={values.sobrenome} onChange={handleChange} required />
-      </label>
-      <label>
-        Email:
-        <input type="email" name="email" value={values.email} onChange={handleChange} required />
-      </label>
-      <label>
-        Senha:
-        <input type="password" name="senha" value={values.senha} onChange={handleChange} required />
-      </label>
-      <label>
-        Telefone:
-        <input type="tel" name="telefone" value={values.telefone} onChange={handleChange} required />
-      </label>
-      <label>
-        Endereço:
-        <input type="text" name="endereco" value={values.endereco} onChange={handleChange} required />
-      </label>
-      <label>
-        Possui daltonismo?
-        <select name="daltonismo" value={values.daltonismo} onChange={handleChange}>
-          <option value="">Selecione...</option>
-          <option value="true">Sim</option>
-          <option value="false">Não</option>
-        </select>
-      </label>
-      {values.daltonismo && (
-        <>
-          <label>
-            Tipo de daltonismo:
-            <select name="tipoDaltonismo" value={values.tipoDaltonismo} onChange={handleChange}>
+      <div>
+        <label htmlFor="name">Nome:</label>
+        <input id="name" type="text" name="name" value={values.name} onChange={handleChange} required />
+      </div>
+      <div>
+        <label htmlFor="lastName">Sobrenome:</label>
+        <input id="lastName" type="text" name="lastName" value={values.lastName} onChange={handleChange} required />
+      </div>
+      <div>
+        <label htmlFor="email">Email:</label>
+        <input id="email" type="email" name="email" value={values.email} onChange={handleChange} required />
+      </div>
+      <div>
+        <label htmlFor="password">Senha:</label>
+        <input id="password" type="password" name="password" value={values.password} onChange={handleChange} required />
+      </div>
+      <div>
+        <label htmlFor="birthday">Data de Aniversário:</label>
+        <input id="birthday" type="date" name="birthday" value={values.birthday.toISOString().split('T')[0]} onChange={handleChange} required />
+      </div>
+      <div>
+        <label htmlFor="isColorBlind">
+          Possui daltonismo?
+          <input id="isColorBlind" type="checkbox" name="isColorBlind" checked={values.isColorBlind} onChange={handleChange} />
+        </label>
+        {values.isColorBlind && (
+          <div>
+            <label htmlFor="typeColorBlind">Tipo de daltonismo:</label>
+            <select id="typeColorBlind" name="typeColorBlind" value={values.typeColorBlind} onChange={handleChange}>
               <option value="">Selecione...</option>
-              <option value="monocromático">Monocromático</option>
-              <option value="dicromático">Dicromático</option>
-              <option value="tricromático">Tricromático</option>
+              <option value="monocromatico">Monocromático</option>
+              <option value="dicromatico">Dicromático</option>
+              <option value="tricromatico">Tricromático</option>
             </select>
-          </label>
-        </>
-      )}
+          </div>
+        )}
+      </div>
       <button type="submit">Cadastrar</button>
     </form>
   );
