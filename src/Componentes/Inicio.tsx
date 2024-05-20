@@ -1,10 +1,12 @@
 import React from "react";
 import Link from "next/link";
 
+
+
 const Inicio: React.FC = () => {
     return (
         <>
-            <div className="bg-white-200 p-4">
+            <div className="bg-white-200 p-4 bg-center">
                 <div className="flex justify-center items-center">
                     <div className="mr-4">
                         <p className="font-bold text-xl text-center">Entregue sucesso agora <br />com o Salesforce Customer 360.</p>
@@ -14,10 +16,10 @@ const Inicio: React.FC = () => {
                 </div>
             </div>
             <div className="bg-white-500 p-4 flex justify-center space-x-4">
-                <Link href="/Guia">
+                <Link href="/Daltonismo" legacyBehavior>
                     <a className="bg-blue-500 text-black font-bold py-2 px-4 rounded text-center">Faça o teste grátis</a>
                 </Link>
-                <Link href="/Daltonismo">
+                <Link href="/Daltonismo" legacyBehavior>
                     <a className="bg-white border border-blue-500 text-blue-500 font-bold py-2 px-4 rounded text-center">Saiba mais</a>
                 </Link>
             </div>
@@ -40,7 +42,7 @@ const Inicio: React.FC = () => {
                                     </tr>
                                     <tr>
                                         <td className="text-center">
-                                            <Link href="/Daltonismo">
+                                            <Link href="/Daltonismo" legacyBehavior>
                                                 <a className="bg-white border border-blue-500 text-blue-500 font-bold py-2 px-4 rounded mb-2 text-center">Nova função: Daltonismo</a>
                                             </Link>
                                             <br />
