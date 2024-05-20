@@ -1,18 +1,9 @@
-
-// src/types/types.tsx
-
+// src/types/User.ts
 export interface User {
-  id: number;
+  id: string;
   name: string;
-  username: string;
+  lastName: string;
+  email: string;
+  birthday: string;
   password: string;
- 
 }
-
-export interface Post {
-  id: number;
-  title: string;
-  content: string;
-}
-
-// Adicione mais interfaces conforme necessário

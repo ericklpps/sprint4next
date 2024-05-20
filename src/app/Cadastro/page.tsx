@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { registerUser } from '@/Services/ApiCadastro'; // Supondo que você tenha esta função
 
-interface User {
+interface Users {
   name: string;
   lastName: string;
   email: string;
@@ -14,7 +14,7 @@ interface User {
 }
 
 const Cadastro: React.FC = () => {
-  const [values, setValues] = useState<User>({
+  const [values, setValues] = useState<Users>({
     name: '',
     lastName: '',
     email: '',
