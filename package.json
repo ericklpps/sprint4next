@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "axios": "^1.6.8",
+    "json-server": "^1.0.0-alpha.23",
     "next": "^14.2.3",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-select": "^5.8.0"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -22,5 +24,20 @@
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "additionalPackage": {
+    "name": "json-server-users",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "json-server --watch db.json --port 3001"
+    }
   }
 }

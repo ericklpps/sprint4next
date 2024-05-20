@@ -4,23 +4,23 @@ import React, { useState } from 'react';
 import { registerUser } from '@/Services/ApiCadastro'; // Supondo que você tenha esta função
 
 
-interface Users {
+interface users {
   name: string;
   lastName: string;
   email: string;
   password: string;
-  birthday: Date;
+  birthday: string;
   isColorBlind: boolean;
   typeColorBlind?: string;
 }
 
 const Cadastro: React.FC = () => {
-  const [values, setValues] = useState<Users>({
+  const [values, setValues] = useState<users>({
     name: '',
     lastName: '',
     email: '',
     password: '',
-    birthday: new Date(),
+    birthday: '',
     isColorBlind: false,
   });
 
@@ -75,9 +75,17 @@ const Cadastro: React.FC = () => {
           <input id="password" type="password" name="password" value={values.password} onChange={handleChange} required />
         </div>
         <div >
-          <label htmlFor="birthday">Data de Aniversário:</label>
-          <input id="birthday" type="date" name="birthday" value={values.birthday.toISOString().split('T')[0]} onChange={handleChange} required />
-        </div>
+          <label htmlFor="birthday">Data de Nascimento: </label>
+          <input
+          id="birthday"
+          type="text"
+          name="birthday"
+          value={values.birthday}
+          onChange={handleChange}
+          placeholder="YYYY-MM-DD"
+          required
+        />
+            </div>
         <div >
           <label htmlFor="isColorBlind">
             Possui daltonismo?

@@ -24,6 +24,11 @@ const Header: React.FC = () => {
                 <a className="nav-link">Cadastro</a>
               </Link>
             </li>
+            <li className="nav-item">
+              <Link href="/Feedback" legacyBehavior>
+                <a className="nav-link">Feedback</a>
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>

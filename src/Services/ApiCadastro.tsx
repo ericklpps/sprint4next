@@ -3,7 +3,7 @@ import axios from 'axios';
 import { users } from '@/app/Types/types';
 
 const api = axios.create({
-  baseURL: 'http://localhost:4001/',
+  baseURL: 'http://localhost:3001/',
 });
 
 export const registerUser = async (
@@ -11,7 +11,7 @@ export const registerUser = async (
   lastName: string,
   email: string,
   password: string,
-  birthday: Date,
+  birthday: string,
   isColorBlind: boolean,
   typeColorBlind?: string
 ): Promise<users | null> => {

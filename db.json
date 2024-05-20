@@ -1,23 +1,52 @@
-
 {
-    "users":[
-
+  "users": [
     {
-    "id": "1",
-    "name": "John",
-    "lastName": "Doe",
-    "email": "john.doe@example.com",
-    "birthday": "2003-12-10",
-    "password": "password123"
+      "id": "1",
+      "name": "John",
+      "lastName": "Doe",
+      "email": "john.doe@example.com",
+      "birthday": "2003-12-10",
+      "password": "password123",
+      "isColorBlind": false
     },
     {
-    "id": "2",
-    "name": "Erick",
-    "lastName": "Lopes",
-    "email": "erick@email.com",
-    "birthday": "2003-09-30",
-    "password": "senha1234"
+      "id": "2",
+      "name": "Erick",
+      "lastName": "Lopes",
+      "email": "erick@email.com",
+      "birthday": "2003-09-30",
+      "password": "senha1234",
+      "isColorBlind": true,
+      "typeColorBlind": "monocromatico"
+    },
+    {
+      "id": "ee06",
+      "name": "Luana",
+      "lastName": "Vieira",
+      "email": "luanav@email.com",
+      "password": "senha1234",
+      "birthday": "2024-05-20T13:06:48.491Z",
+      "isColorBlind": true,
+      "typeColorBlind": "monocromatico"
+    },
+    {
+      "id": "b51e",
+      "name": "Gustavo",
+      "lastName": "Camacho",
+      "email": "gustavoc@email.com",
+      "password": "gustavo123",
+      "birthday": "2003-10-12",
+      "isColorBlind": false
     }
-]
+  ],
+  "feedbackAcessibility": [
+    {
+        "userId": 1,
+        "feedbackType": "Issue",
+        "dateHour": "2024-05-19T14:30:00Z",
+        "accessibilityId": 1,
+        "accessibilityText": "The high contrast setting is very helpful.",
+        "grade": 8
+    }
+  ]
 }
-        

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { users } from '@/app/Types/types';
 
 const api = axios.create({
-  baseURL: 'http://localhost:3000/users',
+  baseURL: 'http://localhost:3001/users',
 });
 
 export const loginUser = async (email: string, password: string): Promise<users | null> => {
